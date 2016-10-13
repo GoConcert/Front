@@ -1,5 +1,7 @@
 /* Empty. Add your own CSS if you like */
 img.logo { width: 100%; }
-.dashboard h2 { color: blue; }
-
+.dashboard h2 { color: blue; } 
+.toggle.toggle-assertive input:checked + .track {
+  border-color: white;
+  background-color: #32CD32; }
 

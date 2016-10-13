@@ -23,7 +23,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -67,9 +67,28 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           controller: 'ShowDetailCtrl'
         }
       }
+    })
+    .state('tab.connexion', {
+      url: '/connexion',
+      views: {
+        'connexion': {
+          templateUrl: 'templates/connexion.html',
+          controller: 'ConnexionCtrl'
+        }
+      }
+    })
+      .state('tab.recherche', {
+      url: '/recherche',
+      views: {
+        'recherche': {
+          templateUrl: 'templates/recherche.html',
+          controller: 'RechercheCtrl'
+        }
+      }
     });
-
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+    $urlRouterProvider.otherwise('/tab/dash');
+  // Permet de centrer les view-title
+    $ionicConfigProvider.navBar.alignTitle('center');
  });
 
