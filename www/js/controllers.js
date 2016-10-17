@@ -1,7 +1,8 @@
 angular.module('starter.controllers', [])
-.controller('DashCtrl', function($scope) {})
 .controller('RechercheCtrl', function($scope) {})
+.controller('ReservationCtrl', function($scope) {})
 .controller('ConnexionCtrl', function($scope) {})
+
 
 .controller('ShowsCtrl', function($scope, Shows) {
   $scope.shows = [];

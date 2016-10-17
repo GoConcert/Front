@@ -38,17 +38,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     templateUrl: 'templates/tabs.html'
   })
 
-  // Each tab has its own nav history stack:
-
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
+  // Each tab has its own nav history stack
 
   .state('tab.shows', {
       url: '/shows',
@@ -68,15 +58,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('tab.connexion', {
-      url: '/connexion',
-      views: {
-        'connexion': {
-          templateUrl: 'templates/connexion.html',
-          controller: 'ConnexionCtrl'
-        }
-      }
-    })
       .state('tab.recherche', {
       url: '/recherche',
       views: {
@@ -85,10 +66,29 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           controller: 'RechercheCtrl'
         }
       }
+    })
+      .state('tab.reservation', {
+      url: '/reservation',
+      views: {
+        'reservation': {
+          templateUrl: 'templates/reservation.html',
+          controller: 'ReservationCtrl'
+        }
+      }
+    })
+      .state('tab.connexion', {
+      url: '/connexion',
+      views: {
+        'connexion': {
+          templateUrl: 'templates/connexion.html',
+          controller: 'ConnexionCtrl'
+        }
+      }
     });
   // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/dash');
+    $urlRouterProvider.otherwise('/tab/shows');
   // Permet de centrer les view-title
     $ionicConfigProvider.navBar.alignTitle('center');
+    $ionicConfigProvider.tabs.position('bottom'); // other values: top
  });
 

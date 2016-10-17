@@ -1,5 +1,20 @@
-<ion-view view-title="Spectacles">
+<ion-view view-title="Accueil">
   <ion-content>
+    <div class="list card">
+    <h2 class="dashboard">Bienvenue sur GoConcert</h2>
+    <p>
+    Vous trouverez sur cette application des recommandations de concerts en fonction de vos goûts musicaux !
+    </p>
+      <label class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="Search">
+      </label>
+    </div>
+    
+    <div class="item item-body">
+     <h2>
+    Les coups de coeur GoConcert 
+    </h2>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="show in shows" type="item-text-wrap" href="#/tab/shows/{{show.id}}">
         <img ng-src="{{show.image}}">
@@ -12,5 +27,6 @@
         </ion-option-button>
       </ion-item>
     </ion-list>
+    </div>
   </ion-content>
 </ion-view>
