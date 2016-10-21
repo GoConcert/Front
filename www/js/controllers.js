@@ -10,7 +10,12 @@ angular.module('starter.controllers', [])
   }).then(function(modal) {
   $scope.modal = modal;
   });
-  $scope.openModal = function() {
+  $scope.openModal = function(concert_location) {
+    // remove this alert - it is just to show that we have access to the concert_location variable
+    alert(concert_location);
+    Shows.search(concert_location).then(function(apiShows) {
+    $scope.shows = apiShows; 
+        });
     $scope.modal.show();
 
   };

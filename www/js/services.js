@@ -14,6 +14,18 @@ angular.module('starter.services', [])
          return shows;
        })
                 },
+    search: function(concert_location) {
+    /*
+    the url below is to be replaced by a url like this one once it is implemented in the api ("Back" project):
+
+    return $http.get("http://goco.herokuapp.com/concerts/search.json?location=" + concert_location)
+    */
+    return $http.get("http://goco.herokuapp.com/concerts.json")
+       .then(function(response) {
+         shows = response.data;
+         return shows;
+       })
+                },
     get: function(showId) {
       for (var i = 0; i < shows.length; i++) {
         if (shows[i].id === parseInt(showId)) {
