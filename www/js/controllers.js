@@ -1,8 +1,8 @@
 angular.module('starter.controllers', [])
 .controller('RechercheCtrl', function($scope, $stateParams,$ionicModal,$state, Shows) {
-    $scope.shows = [];
-    Shows.all().then(function(apiShows) {
-    $scope.shows = apiShows; 
+  $scope.shows = [];
+  Shows.all().then(function(apiShows) {
+  $scope.shows = apiShows; 
       });
   $ionicModal.fromTemplateUrl('templates/modal-find.html', {
   scope: $scope,
@@ -16,8 +16,9 @@ angular.module('starter.controllers', [])
   };
   $scope.closeModal = function() {
     $scope.modal.hide();
-  }; 
+  };
 })
+
 .controller('ReservationCtrl', function($scope) {})
 .controller('ConnexionCtrl', function($scope) {})
 
