@@ -14,7 +14,7 @@
     <p> Ou indiquer un lieu </p>
     <label class="item item-input">
     <i class="icon ion-search placeholder-icon"></i>
-    <input type="text" placeholder="Search" ng-model="location">
+    <input type="text" placeholder="Search" ng-model="concert_location">
     </label>
     </div>
     <p> Ou indiquer vos préférences musicales </p>
@@ -67,7 +67,7 @@
     </label>
 
 </div>
-<button class="button button-block button-positive" ng-click="openModal()"">
+<button class="button button-block button-positive" ng-click="openModal(concert_location)"">
   Rechercher
 </button>
   </ion-content>
