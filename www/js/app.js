@@ -60,12 +60,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
       .state('tab.recherche', {
       url: '/recherche',
+      params: {
+      Search: null
+              },
       views: {
         'recherche': {
           templateUrl: 'templates/recherche.html',
-          controller: 'RechercheCtrl'
+          controller: 'RechercheCtrl',        
         }
-      }
+      } 
     })
       .state('tab.reservation', {
       url: '/reservation',
@@ -90,5 +93,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Permet de centrer les view-title
     $ionicConfigProvider.navBar.alignTitle('center');
     $ionicConfigProvider.tabs.position('bottom'); // other values: top
+
  });
 
