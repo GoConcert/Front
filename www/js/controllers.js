@@ -1,9 +1,5 @@
 angular.module('starter.controllers', [])
-.controller('RechercheCtrl', function($scope, $stateParams,$ionicModal,$state, Shows) {
-  $scope.shows = [];
-  Shows.all().then(function(apiShows) {
-  $scope.shows = apiShows; 
-      });
+.controller('RechercheCtrl', function($scope, $stateParams,$ionicModal,$state, Shows){
   $ionicModal.fromTemplateUrl('templates/modal-find.html', {
   scope: $scope,
   animation: 'slide-in-up'
@@ -12,29 +8,29 @@ angular.module('starter.controllers', [])
   });
   $scope.openModal = function(concert_location) {
     // remove this alert - it is just to show that we have access to the concert_location variable
-    alert(concert_location);
+     alert(concert_location);
+    $scope.shows = [];
+    $scope.concert_location=concert_location;
     Shows.search(concert_location).then(function(apiShows) {
     $scope.shows = apiShows; 
-        });
+      });
     $scope.modal.show();
-
-  };
+  
+    };
   $scope.closeModal = function() {
     $scope.modal.hide();
   };
-})
+    })
+
 
 .controller('ReservationCtrl', function($scope) {})
 .controller('ConnexionCtrl', function($scope) {})
-
-
 .controller('ShowsCtrl', function($scope, Shows,$state,$stateParams) {
   $scope.shows = [];
     Shows.all().then(function(apiShows) {
     $scope.shows = apiShows; 
       });
-    })
-   
+    })  
 .controller('ShowDetailCtrl', function($scope, $stateParams, $ionicModal, Shows) {
   $scope.show = Shows.get($stateParams.showId);
   $ionicModal.fromTemplateUrl('templates/modal-book.html', {

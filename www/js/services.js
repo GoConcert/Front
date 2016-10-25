@@ -11,21 +11,28 @@ angular.module('starter.services', [])
     return $http.get("http://goco.herokuapp.com/concerts.json")
        .then(function(response) {
          shows = response.data;
-         return shows;
+          return shows;
        })
-                },
-    search: function(concert_location) {
-    /*
-    the url below is to be replaced by a url like this one once it is implemented in the api ("Back" project):
 
-    return $http.get("http://goco.herokuapp.com/concerts/search.json?location=" + concert_location)
-    */
-    return $http.get("http://goco.herokuapp.com/concerts.json")
-       .then(function(response) {
-         shows = response.data;
-         return shows;
-       })
                 },
+  search: function(concert_location) {
+     /*
+ +    the url below is to be replaced by a url like this one once it is implemented in the api ("Back" project):
+ +
+ +    return $http.get("http://goco.herokuapp.com/concerts/search.json?location=" + concert_location)
+ +    */
+      return $http.get("http://goco.herokuapp.com/concerts.json")
+       .then(function(response) {
+      sshows = response.data;
+               var oShows = [];
+      for (var i = 0; i < shows.length; i++){
+            if (sshows[i].location == concert_location){
+              oShows = oShows.concat(shows[i]);
+            }
+          }
+          return oShows;
+    })
+     },
     get: function(showId) {
       for (var i = 0; i < shows.length; i++) {
         if (shows[i].id === parseInt(showId)) {
