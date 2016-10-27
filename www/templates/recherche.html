@@ -1,6 +1,6 @@
 <ion-view view-title="Recherche" class="dashboard">
   <ion-content class="padding">
-    <h2> Rechercher un concert</h2>
+    <h1> Rechercher un concert</h1>
     <li class="item item-toggle">
      Activer la localisation
      <label class="toggle toggle-assertive">
@@ -17,16 +17,16 @@
     <input type="text" placeholder="Search" ng-model="concert_location">
     </label>
     </div>
-    <p> Ou indiquer vos préférences musicales </p>
+    <p> Et / Ou indiquer vos préférences musicales </p>
     <div class="list">
 
     <label class="item item-input item-select">
     <div class="input-label">
     Préférence 1
     </div>
-    <select>
+    <select ng-model="preference1">
     <option>Electro</option>
-    <option selected>Jazz</option>
+    <option selected="">Jazz</option>
     <option>Pop</option>
     <option>Punk</option>
     <option>Rap</option>

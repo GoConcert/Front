@@ -23,14 +23,8 @@ angular.module('starter.services', [])
  +    */
       return $http.get("http://goco.herokuapp.com/concerts.json")
        .then(function(response) {
-      sshows = response.data;
-               var oShows = [];
-      for (var i = 0; i < shows.length; i++){
-            if (sshows[i].location == concert_location){
-              oShows = oShows.concat(shows[i]);
-            }
-          }
-          return oShows;
+      shows = response.data;
+      return shows;
     })
      },
     get: function(showId) {
