@@ -24,9 +24,9 @@
     <div class="input-label">
     Préférence 1
     </div>
-    <select ng-model="preference1">
-    <option>Electro</option>
-    <option selected="">Jazz</option>
+    <select ng-init ="pref1='1'" ng-model="pref1">
+    <option value="1">Electro</option>
+    <option>Jazz</option>
     <option>Pop</option>
     <option>Punk</option>
     <option>Rap</option>
@@ -39,9 +39,9 @@
     <div class="input-label">
     Préférence 2
     </div>
-    <select>
-    <option selected="">Electro</option>
-    <option>Jazz</option>
+    <select ng-init="pref2='2'" ng-model="pref2">
+    <option>Electro</option>
+    <option value="2">Jazz</option>
     <option>Pop</option>
     <option>Punk</option>
     <option>Rap</option>
@@ -54,10 +54,10 @@
     <div class="input-label">
     Préférence 3
     </div>
-    <select>
+    <select ng-init="pref3='3'" ng-model="pref3">
     <option>Electro</option>
     <option>Jazz</option>
-    <option selected="">Pop</option>
+    <option value="3">Pop</option>
     <option>Punk</option>
     <option>Rap</option>
     <option>Reggae</option>

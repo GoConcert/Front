@@ -8,8 +8,7 @@ angular.module('starter.services', [])
 
   return {
     all: function() {
-    return $http.get("http://goco.herokuapp.com/concerts.json")
-       .then(function(response) {
+    return $http.get("http://goco.herokuapp.com/concerts.json").then(function(response) {
          shows = response.data;
           return shows;
        })
@@ -21,13 +20,18 @@ angular.module('starter.services', [])
  +
  +    return $http.get("http://goco.herokuapp.com/concerts/search.json?location=" + concert_location)
  +    */
-      return $http.get("http://goco.herokuapp.com/concerts.json")
-       .then(function(response) {
+      return $http.get("http://goco.herokuapp.com/concerts.json").then(function(response) {
       shows = response.data;
       return shows;
     })
      },
     get: function(showId) {
+        return $http.get("http://goco.herokuapp.com/concerts/"+ showId +".json").then(function(response) {
+        show = response.data;
+        return shows;
+          })
+     },
+        /* function(showId) {
       for (var i = 0; i < shows.length; i++) {
         if (shows[i].id === parseInt(showId)) {
           return shows[i];
@@ -35,6 +39,9 @@ angular.module('starter.services', [])
       }
       return null;
                 },
+        */        
+
+
     book: function(showId, user_name, nb_people) {
       return $http.post("http://goco.herokuapp.com/concerts/" + showId + "/reservation.json", {booking: {user_name: user_name, nb_people: nb_people}}).then(function(response){
         booking = response.data;
