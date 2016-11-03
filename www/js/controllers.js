@@ -11,6 +11,7 @@ angular.module('starter.controllers', [])
      alert(concert_location);
     $scope.shows = [];
     $scope.concert_location=concert_location;
+    $scope.style=pref1;
     Shows.search(concert_location).then(function(apiShows) {
     $scope.shows = apiShows; 
       });

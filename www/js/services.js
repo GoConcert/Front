@@ -20,7 +20,7 @@ angular.module('starter.services', [])
  +
  +    return $http.get("http://goco.herokuapp.com/concerts/search.json?location=" + concert_location)
  +    */
-      return $http.get("http://goco.herokuapp.com/concerts.json").then(function(response) {
+      return $http.get("http://goco.herokuapp.com/concerts/search.json?location="+concert_location).then(function(response) {
       shows = response.data;
       return shows;
     })

@@ -24,21 +24,19 @@
    		 {{show.price}}
  		</a>
  	
- 		<ion-item>
-  <ion-label>Nombre de places</ion-label>
-  <span class="item-note">
-  <select ng-model="mySelect" ng-change="showSelectValue(mySelect)">
-    <option>1</option>
+  <label class="item item-input item-select">
+  <div class="input-label">
+  Nombre de place
+  </div>
+  <select ng-init ="mySelect='1'" ng-model="mySelect">
+    <option value="1">1</option>
     <option>2</option>
     <option>3</option>
     <option>4</option>
     <option>5</option>
     <option>6</option>
 </select>
-  </span>
-		
-</ion-item>
- 	</div>
+  </label>
 
       <button class="button button-block button-positive">
         Réserver pour {{show.price}}€
