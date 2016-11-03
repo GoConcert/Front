@@ -4,21 +4,45 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="{{show.title}}">
+<ion-view view-title="{{show.name}}">
   <ion-content class="padding">
-  <div class="item">
-    <h2>{{show.title}}</h2>
-    <p>{{show.date}}</p>
-    <p>{{show.location}}</p>
-  </div>
-   <div class="item item-body">
-  <img ng-src="{{show.image}}">
-    <p>
-      {{show.description}}
-    </p>
-    <button class="button button-block button-positive" ng-click="openModal()">
-    Réserver pour {{show.price}}€
-    </button>
+      <div class="item item-body">
+        <img class="full-image" ng-src="{{show.image}}">
+        <p>
+          {{show.description}}
+        </p>
       </div>
+      <div class="list">
+
+  		<a class="item item-icon-left" href="#">
+   		 <i class="ion-android-time"></i>
+   		 {{show.date}}
+  		</a>
+
+ 		<a class="item item-icon-left item-icon-right" href="#">
+  		 <i class="ion-social-euro"></i>
+   		 {{show.price}}
+ 		</a>
+ 	
+ 		<ion-item>
+  <ion-label>Nombre de places</ion-label>
+  <span class="item-note">
+  <select ng-model="mySelect" ng-change="showSelectValue(mySelect)">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+</select>
+  </span>
+		
+</ion-item>
+ 	</div>
+
+      <button class="button button-block button-positive">
+        Réserver pour {{show.price}}€
+      </button>
+    </div>
   </ion-content>
 </ion-view>
