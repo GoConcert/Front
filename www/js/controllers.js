@@ -8,9 +8,9 @@ angular.module('starter.controllers', [])
   });
   $scope.openModal = function(concert_location, pref1) {
     $scope.shows = [];
-    $scope.concert_location = [];
+    $scope.concert_location = "";
     concert_location=concert_location;
-    $scope.music_style = [];
+    $scope.music_style = "";
     music_style=pref1;
     Shows.search(concert_location, music_style).then(function(apiShows) {
     $scope.shows = apiShows; 

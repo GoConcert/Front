@@ -50,7 +50,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
   })
     .state('tab.show-detail', {
-      url: '/shows/:showId',
+      url: '/shows/{showId:int}',
       views: {
         'tab-shows': {
           templateUrl: 'templates/show-detail.html',

@@ -19,10 +19,34 @@ angular.module('starter.services', [])
  +
  +    return $http.get("http://goco.herokuapp.com/concerts/search.json?location=" + concert_location)
  +    */
+      if (music_style==="Tous" & concert_location=="")
+      {
+      return $http.get("http://goco.herokuapp.com/concerts.json").then(function(response) {
+      shows = response.data;
+      return shows;
+      })
+      }
+      else if (typeof concert_location==='undefined' || concert_location=="")
+      {
+      return $http.get("http://goco.herokuapp.com/concerts/search.json?music_style="+music_style).then(function(response) {
+      shows = response.data;
+      return shows;
+      })
+      }
+      else if (typeof music_style==='undefined')
+      {
+      return $http.get("http://goco.herokuapp.com/concerts/search.json?location="+concert_location).then(function(response) {
+      shows = response.data;
+      return shows;
+      })
+      }
+      else 
+      {
       return $http.get("http://goco.herokuapp.com/concerts/search.json?music_style="+music_style+"&location="+concert_location).then(function(response) {
       shows = response.data;
       return shows;
-    })
+      })
+      } 
      },
     get: function(showId) {
         return $http.get("http://goco.herokuapp.com/concerts/"+ showId +".json").then(function(response) {
@@ -43,14 +67,20 @@ angular.module('starter.services', [])
         booking = response.data;
         return booking;
       });
-          /* 
+        },
+                  /* 
 Il faut retravailler la fonction book qui va devenir une fonction like
 en paramètre : user_id concert_id et like : On/Off
         */ 
-    },
-          /* 
-Il faut creer la fonction connexion qui va aller verifier que le login et le mdp correspond bien à la bdd
-        */ 
+    listing: function(user_id) {
+
+      return $http.get("http://goco.herokuapp.com/concerts/search.json?user_id="+user_id).then(function(response) {
+      list = response.data;
+      return list;
+          })
+     },
+
+  
    };
 })
 

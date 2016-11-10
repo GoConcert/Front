@@ -1,7 +1,7 @@
 /* Empty. Add your own CSS if you like */
 img.logo { width: 100%; }
 img.showimage { width: 100%; }
-.dashboard h1 { color: orange; } 
+.dashboard h1 { color: orange; font-size: 200%;} 
 .toggle.toggle-assertive input:checked + .track {
   border-color: white;
   background-color: #32CD32; }

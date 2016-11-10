@@ -1,7 +1,7 @@
 <ion-modal-view>
     <ion-header-bar>
-      <h1 class="title">Hello
-      <button class="button button-secondary" ng-click="modal.hide()">Cancel</button></h1>
+      <button class="button button-black" ng-click="modal.hide()"><i class="ion-arrow-left-c"></i> Back </button>
+       <h1 class="title"> Recherche : {{concert_location}} {{music_style}}</h1>
     </ion-header-bar>
     <ion-content>
      <div class="item item-body">
@@ -15,8 +15,5 @@
      </ion-list>
     </div>
 	</ion-view>
-	<button class="button button-block button-positive" ng-click="openModal(concert_location)">
-	Test
-	</button>
 </ion-content>
   </ion-modal-view>
