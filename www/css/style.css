@@ -1,7 +1,32 @@
 /* Empty. Add your own CSS if you like */
 img.logo { width: 100%; }
-.dashboard h1 { color: orange; } 
+.dashboard {background-color: #d9dadb;}
+.dashboard h1 { 
+	color: #1f86b6;
+	font-family: "Hobo std";
+	text-align: center; } 
+.dashboard h2 {
+	color : #20269f;
+	font-family: "Hobo std";
+	text-align : left;}
+.dashboard p {
+	color : #2d2f5a;
+	font-family: "kalinga" ;
+	text-align : justify; }
+
+.item.item-body {
+	background-color: #32CD32
+}
+
+.button.button-block {
+	background-color: #32CD32
+}
+.list {
+	background-color: #32CD32
+}
+.item.item-input.item-stacked-label input {
+	background-color: #32CD32	
+}
 .toggle.toggle-assertive input:checked + .track {
   border-color: white;
   background-color: #32CD32; }
-
