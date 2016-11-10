@@ -1,4 +1,9 @@
 <ion-view view-title="Accueil" class="dashboard">
+<ion-nav-bar>
+  <ion-nav-back-button class="button-gold">
+    <i class="ion-arrow-left-c"></i> Back
+  </ion-nav-back-button>
+  </ion-nav-bar>
   <ion-content class="padding">
     <h1>Bienvenue sur GoConcert</h1>
     <p>
@@ -12,10 +17,10 @@
     </div>
     <div class="item item-body">
      <h2>
-    Les coups de coeur GoConcert 
+    Les concerts qui arrivent bientôt ! 
     </h2>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="show in shows | filter:search track by show.id" type="item-text-wrap" href="#/tab/shows/{{show.id}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="show in shows | filter:search | orderBy:'date' track by $index" type="item-text-wrap" href="#/tab/shows/{{show.id}}">
         <img ng-src="{{show.image}}">
         <h2>{{show.title}}</h2>
         <p>{{show.description}}</p>

@@ -6,13 +6,13 @@ angular.module('starter.controllers', [])
   }).then(function(modal) {
   $scope.modal = modal;
   });
-  $scope.openModal = function(concert_location) {
-    // remove this alert - it is just to show that we have access to the concert_location variable
-     alert(concert_location);
+  $scope.openModal = function(concert_location, pref1) {
     $scope.shows = [];
-    $scope.concert_location=concert_location;
-    $scope.style=pref1;
-    Shows.search(concert_location).then(function(apiShows) {
+    $scope.concert_location = [];
+    concert_location=concert_location;
+    $scope.music_style = [];
+    music_style=pref1;
+    Shows.search(concert_location, music_style).then(function(apiShows) {
     $scope.shows = apiShows; 
       });
     $scope.modal.show();
@@ -22,10 +22,22 @@ angular.module('starter.controllers', [])
     $scope.modal.hide();
   };
     })
-
-
-.controller('ReservationCtrl', function($scope) {})
-.controller('ConnexionCtrl', function($scope) {})
+.controller('SelectionCtrl', function($scope) {})
+.controller('ConnexionCtrl', function($scope,Shows,$state,$stateParams) { 
+$scope.connexion = function(user_name, password) {
+    $scope.user_name = [];
+    $scope.password = [];
+    user_name=user_name;
+    password = password;
+    Shows.connexion(user_name, password).then(function(apiShows) {
+    $scope.users = apiShows;
+    $scope.profiletoshow=1; 
+      });
+    }
+$scope.deconnexion = function() {
+  $scope.profiletoshow=0;
+    }
+        })
 .controller('ShowsCtrl', function($scope, Shows,$state,$stateParams) {
   $scope.shows = [];
     Shows.all().then(function(apiShows) {
@@ -33,7 +45,9 @@ angular.module('starter.controllers', [])
       });
     })  
 .controller('ShowDetailCtrl', function($scope, $stateParams, $ionicModal, Shows) {
-  $scope.show = Shows.get($stateParams.showId);
+  Shows.get($stateParams.showId).then(function(apiShows) {
+   $scope.show = apiShows; 
+      });
   $ionicModal.fromTemplateUrl('templates/modal-book.html', {
   scope: $scope,
   animation: 'slide-in-up'

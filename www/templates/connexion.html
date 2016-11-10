@@ -1,18 +1,28 @@
 <ion-view view-title="Connexion" class="dashboard">
-  <ion-content class="padding">
+<ion-content class="padding">
 <p> <font color="red"> En cours de construction </font> </p>
-<div class="list">
+ <p>
+    Bienvenue {{users[1].id}}
+</p>
+<div class="list" ng-hide=profiletoshow>
   <label class="item item-input item-stacked-label">
     <span class="input-label">Login</span>
-    <input type="text" placeholder="Email">
+    <input type="text" placeholder="Email" ng-model="user_name">
   </label>
     <label class="item item-input item-stacked-label">
-    <span class="input-label">Mot de passe</span>
-    <input type="text" placeholder="XXXXX">
+    <span class="passw-label">Mot de passe</span>
+    <input type="password" placeholder="XXXXX" ng-model="password">
   </label>
 </div>
-<button class="button button-block button-positive">
+<button class="button button-block button-positive" ng-click="connexion(user_name, password)" ng-hide=profiletoshow>
   Connexion
 </button>
+     <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="user in users" type="item-text-wrap" ng-hide=!profiletoshow>
+
+      <p> Bienvenue : {{user.user_name}}</p>
+      <p> Localisation par défaut : {{user.location}}</p>
+      </ion-item>
+      <button class="button button-block button-positive" ng-click="deconnexion()" ng-hide=!profiletoshow> Deconnexion
+
   </ion-content>
 </ion-view>

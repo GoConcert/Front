@@ -5,9 +5,14 @@
   The Friends service returns an array of friend data
 -->
 <ion-view view-title="{{show.name}}">
+<ion-nav-bar>
+  <ion-nav-back-button class="button-gold">
+    <i class="ion-arrow-left-c"></i> Back
+  </ion-nav-back-button>
+  </ion-nav-bar>
   <ion-content class="padding">
       <div class="item item-body">
-        <img class="full-image" ng-src="{{show.image}}">
+        <img class="showimage" ng-src="{{show.image}}">
         <p>
           {{show.description}}
         </p>
@@ -39,7 +44,7 @@
   </label>
 
       <button class="button button-block button-positive">
-        Réserver pour {{show.price}}€
+        Ajouter à ma liste
       </button>
     </div>
   </ion-content>

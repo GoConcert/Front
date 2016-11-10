@@ -67,12 +67,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         } 
       } 
     })
-      .state('tab.reservation', {
-      url: '/reservation',
+      .state('tab.selection', {
+      url: '/selection',
       views: {
-        'reservation': {
-          templateUrl: 'templates/reservation.html',
-          controller: 'ReservationCtrl'
+        'selection': {
+          templateUrl: 'templates/selection.html',
+          controller: 'SelectionCtrl'
         }
       }
     })
