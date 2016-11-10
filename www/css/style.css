@@ -1,53 +1,87 @@
 /* Empty. Add your own CSS if you like */
 img.logo { width: 100%; }
-.padding {background-color: #ffcc99;}
 .dashboard {
-	background-color: #ffcc99;}
+	background-image: url("back_bubbles.jpg");
+	background-size: contain;
+}
 .dashboard h1 { 
-	color: #cc3300;
+	color: #100246;
 	font-size : 35px;
 	font-family: "Hobo std";
 	text-align: center; } 
 .dashboard h2 {
-	color : #cc3300;
-	font-size : 18px;
+	color : #100246;
+	font-size : 20px;
 	font-family: "Hobo std";
 	text-align : center;}
 .dashboard p {
-	color : #cc3300;
+	color : #000000;
 	font-size : 15px;
+	font-weight : bold;
 	font-family: "kalinga" ;
 	text-align : justify; }
 
 /*l'encadré "les coups de coeur Go Concert dans l'onglet Home */
 .item.item-body {
-	border-color : #ff9966;
-	background-color: #ff9966;
+	border-color : #32aabe;
+	background-color: #32aabe;
+	opacity : 0.8;
 }
 
 /* les boutons "Rechercher" etc...*/
 .button.button-block {
-	background-color: #ff9933;
+	background-color: #715acc;
 }
 
 /* L'intérieur des champs à remplir dans l'onglet Connexion --> "Email" et "XXXX"*/
 .item.item-input.item-stacked-label input {
-	background-color: #ff9966
+	background-color: #32aabe;
+	opacity : 0.8;
 }
 /*Onglet Recherche "activer la localisation"*/
 .item.item-toggle {
-	border-color : #ff9966;
-	background-color: #ff9966	
+	border-color : #32aabe;
+	background-color: #32aabe; 
+	opacity : 0.8;
 }
 /* bannière "que recherchez-vous", "search", "preferences", et "login" et mot de passe" */
 .item.item-input {
-	border-color : #ff9966;
-	background-color: #ff9966;
+	border-color : #32aabe;
+	background-color: #32aabe;
+	opacity : 0.8;
+}
+.item.item-input {
+	text-decoration-color: black;
 }
 /*les listes déroulantes de la partie préférence dans l'onglet Recherche : "jazz, electro etc" */
 .item.item-input.item-select select {
-	background-color: #ff9966
+	background-color: #32aabe
 }
 .toggle.toggle-assertive input:checked + .track {
-  border-color: #00BCD4;
-  background-color: #00BCD4; }
+  border-color: #dc4ca6;
+  background-color: #dc4ca6; }
+
+ .icon.ion-search.placeholder-icon {
+ 	color : white;
+ }
+ .item.item-input.item-stacked-label input{
+ 	text-decoration-color: black;
+ }
+ .item.item-input.item-stacked-label {
+ 	text-decoration-color: black;
+ }
+
+ /*onglet Recherche "préférences"*/
+ .input-label {
+ 	color : #000000;
+	font-size : 18px;
+	font-weight : bold;
+	font-family: "kalinga" ;
+ }
+ /*onglet Connexion "Mot de Passe"*/
+.passw-label {
+	color : #000000;
+	font-size : 18px;
+	font-weight : bold;
+	font-family: "kalinga" ;
+}
