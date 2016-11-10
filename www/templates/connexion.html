@@ -1,8 +1,5 @@
 <ion-view view-title="Connexion" class="dashboard">
 <ion-content class="padding">
- <p>
-    Bienvenue {{users[1].id}}
-</p>
 <div class="list" ng-hide=profiletoshow>
   <label class="item item-input item-stacked-label">
     <span class="input-label">Login</span>
@@ -16,12 +13,10 @@
 <button class="button button-block button-positive" ng-click="connexion(user_name, password)" ng-hide=profiletoshow>
   Connexion
 </button>
-     <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="user in users" type="item-text-wrap" ng-hide=!profiletoshow>
-
+    <div ng-hide=!profiletoshow>
       <p> Bienvenue : {{user.user_name}}</p>
       <p> Localisation par défaut : {{user.location}}</p>
-      </ion-item>
       <button class="button button-block button-positive" ng-click="deconnexion()" ng-hide=!profiletoshow> Deconnexion
-
+    </div>
   </ion-content>
 </ion-view>

@@ -6,12 +6,10 @@ angular.module('starter.controllers', [])
   }).then(function(modal) {
   $scope.modal = modal;
   });
-  $scope.openModal = function(concert_location, pref1) {
+  $scope.openModal = function(concert_location, music_style) {
     $scope.shows = [];
-    $scope.concert_location = "";
-    concert_location=concert_location;
-    $scope.music_style = "";
-    music_style=pref1;
+    $scope.concert_location=concert_location;
+    $scope.music_style=music_style;
     Shows.search(concert_location, music_style).then(function(apiShows) {
     $scope.shows = apiShows; 
       });
@@ -25,12 +23,10 @@ angular.module('starter.controllers', [])
 .controller('SelectionCtrl', function($scope) {})
 .controller('ConnexionCtrl', function($scope,Shows,$state,$stateParams) { 
 $scope.connexion = function(user_name, password) {
-    $scope.user_name = [];
-    $scope.password = [];
-    user_name=user_name;
-    password = password;
-    Shows.connexion(user_name, password).then(function(apiShows) {
-    $scope.users = apiShows;
+    $scope.user_name=user_name;
+    $scope.password =password;
+    Shows.connexion(user_name, password).then(function(apiUsers) {
+    $scope.user = apiUsers[0];
     $scope.profiletoshow=1; 
       });
     }
@@ -39,7 +35,6 @@ $scope.deconnexion = function() {
     }
         })
 .controller('ShowsCtrl', function($scope, Shows,$state,$stateParams) {
-  $scope.shows = [];
     Shows.all().then(function(apiShows) {
     $scope.shows = apiShows; 
       });

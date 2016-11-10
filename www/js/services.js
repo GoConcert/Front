@@ -13,7 +13,7 @@ angular.module('starter.services', [])
        })
 
                 },
-  search: function(concert_location,music_style) {
+  search: function(concert_location, music_style) {
      /*
  +    the url below is to be replaced by a url like this one once it is implemented in the api ("Back" project):
  +
