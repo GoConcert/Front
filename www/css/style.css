@@ -1,32 +1,53 @@
 /* Empty. Add your own CSS if you like */
 img.logo { width: 100%; }
-.dashboard {background-color: #d9dadb;}
+.padding {background-color: #99cccc;}
+.dashboard {
+	background-color: #99cccc;}
 .dashboard h1 { 
 	color: #1f86b6;
+	font-size : 35px;
 	font-family: "Hobo std";
 	text-align: center; } 
 .dashboard h2 {
 	color : #20269f;
+	font-size : 18px;
 	font-family: "Hobo std";
 	text-align : left;}
 .dashboard p {
 	color : #2d2f5a;
+	font-size : 15px;
 	font-family: "kalinga" ;
 	text-align : justify; }
 
+/*l'encadré "les coups de coeur Go Concert dans l'onglet Home */
 .item.item-body {
-	background-color: #32CD32
+	border-color : #009488;
+	background-color: #009488
 }
 
+/* les boutons "Rechercher" etc...*/
 .button.button-block {
-	background-color: #32CD32
+	background-color: #009488
 }
-.list {
-	background-color: #32CD32
-}
+
+/* L'intérieur des champs à remplir dans l'onglet Connexion --> "Email" et "XXXX"*/
 .item.item-input.item-stacked-label input {
-	background-color: #32CD32	
+	background-color: #009488
+}
+/*Onglet Recherche "activer la localisation"*/
+.item.item-toggle {
+	border-color : #009488;
+	background-color: #009488	
+}
+/* bannière "que recherchez-vous", "search", "preferences", et "login" et mot de passe" */
+.item.item-input {
+	border-color : #00796B;
+	background-color: #009488;
+}
+/*les listes déroulantes de la partie préférence dans l'onglet Recherche : "jazz, electro etc" */
+.item.item-input.item-select select {
+	background-color: #009488
 }
 .toggle.toggle-assertive input:checked + .track {
-  border-color: white;
-  background-color: #32CD32; }
+  border-color: #00BCD4;
+  background-color: #00BCD4; }
