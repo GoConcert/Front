@@ -2,7 +2,7 @@
 img.logo { width: 100%; }
 .dashboard {
 	background-image: url("back_bubbles.jpg");
-	background-size: contain;
+	background-size: cover;
 }
 .dashboard h1 { 
 	color: #100246;
