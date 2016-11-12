@@ -20,18 +20,48 @@ angular.module('starter.controllers', [])
     $scope.modal.hide();
   };
     })
-.controller('SelectionCtrl', function($scope) {})
+.controller('SelectionCtrl', function($scope,Shows,$state,$stateParams) {
+var userp = localStorage.getItem('userprof');
+var userprofile = JSON.parse(userp);
+$scope.userprofi = userprofile;
+Shows.listing(userprofile.id).then(function(apiShows) {
+$scope.shows = apiShows; 
+ });
+})
 .controller('ConnexionCtrl', function($scope,Shows,$state,$stateParams) { 
+$scope.testprofiletoshow = localStorage.getItem('profileto');
+if ($scope.testprofiletoshow==null|| $scope.testprofiletoshow=='0')
+  {
+  $scope.profiletoshow='0';
+  }
+else
+  {
+  $scope.profiletoshow='1';
+  $scope.user = localStorage.getItem('userprof');
+  alert($scope.user);
+  }
 $scope.connexion = function(user_name, password) {
     $scope.user_name=user_name;
     $scope.password =password;
     Shows.connexion(user_name, password).then(function(apiUsers) {
-    $scope.user = apiUsers[0];
-    $scope.profiletoshow=1; 
+    $scope.user = apiUsers;
+    localStorage.setItem('userprof',JSON.stringify(user));
+      if (typeof user.id==='undefined')
+       { 
+        alert(JSON.stringify(user));
+         localStorage.setItem('profileto',0);
+         $scope.profiletoshow = localStorage.getItem('profileto');
+         }
+         else
+{ 
+        localStorage.setItem('profileto',1);
+        $scope.profiletoshow = localStorage.getItem('profileto');
+   }
       });
     }
 $scope.deconnexion = function() {
-  $scope.profiletoshow=0;
+      localStorage.setItem('profileto',0);
+      $scope.profiletoshow=0;
     }
         })
 .controller('ShowsCtrl', function($scope, Shows,$state,$stateParams) {
@@ -55,6 +85,8 @@ $scope.openModal = function() {
 $scope.closeModal = function() {
     $scope.modal.hide();
   };
+$scope.profiletoshow = 0;
+$scope.profiletoshow = localStorage.getItem('profileto');
 $scope.book = function(user_name, nb_people) {
     return Shows.book($stateParams.showId, user_name, nb_people)
     .then(function(booking) {

@@ -1,5 +1,20 @@
 <ion-view view-title="Selection" class="dashboard">
   <ion-content class="padding">
-  <h1 class="title">Découvrez votre selection</h1>
+  <h1 class="title">Découvrez votre selection {{userprofi.user_name}}</h1>
+       <div class="list">
+      <label class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="Que cherchez-vous ?" ng-model="search">
+      </label>
+    </div>
+    <div class="item item-body">
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="show in shows | filter:search | orderBy:'date' track by $index" type="item-text-wrap" href="#/tab/shows/{{show.id}}">
+        <img ng-src="{{show.image}}">
+        <h3>{{show.title}}</h3>
+        <p>{{show.description}}</p>
+      </ion-item>
+    </ion-list>
+    </div>
   </ion-content>
 </ion-view>

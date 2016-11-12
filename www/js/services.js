@@ -19,9 +19,23 @@ angular.module('starter.services', [])
  +
  +    return $http.get("http://goco.herokuapp.com/concerts/search.json?location=" + concert_location)
  +    */
-      if (music_style==="Tous" & concert_location=="")
+      if (music_style=="Tous" & concert_location=="")
       {
       return $http.get("http://goco.herokuapp.com/concerts.json").then(function(response) {
+      shows = response.data;
+      return shows;
+      })
+      }
+      else if (music_style=="Tous" & concert_location==='undefined')
+      {
+      return $http.get("http://goco.herokuapp.com/concerts.json").then(function(response) {
+      shows = response.data;
+      return shows;
+      })
+      }
+      else if (music_style=="Tous")
+      {
+      return $http.get("http://goco.herokuapp.com/concerts/search.json?location="+concert_location).then(function(response) {
       shows = response.data;
       return shows;
       })
@@ -33,7 +47,7 @@ angular.module('starter.services', [])
       return shows;
       })
       }
-      else if (typeof music_style==='undefined')
+      else if (typeof music_style==='undefined' || music_style=="")
       {
       return $http.get("http://goco.herokuapp.com/concerts/search.json?location="+concert_location).then(function(response) {
       shows = response.data;

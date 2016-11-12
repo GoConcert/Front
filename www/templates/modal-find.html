@@ -1,14 +1,14 @@
-<ion-modal-view>
+<ion-modal-view class="dashboard">
     <ion-header-bar>
       <button class="button button-black" ng-click="modal.hide()"><i class="ion-arrow-left-c"></i> Back </button>
-       <h1 class="title"> Recherche : {{concert_location}} {{music_style}}</h1>
+       <h1 class="title"> Recherche : ({{concert_location}}, {{music_style}})</h1>
     </ion-header-bar>
-    <ion-content>
+    <ion-content class="padding">
      <div class="item item-body">
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="show in shows" type="item-text-wrap" ng-href="#/tab/shows/{{show.id}}" ng-click="closeModal()">
         <img ng-src="{{show.image}}">
-        <h2>{{show.title}}</h2>
+        <h3>{{show.title}}</h3>
         <p>{{show.description}}</p>
       </ion-item>
      </ion-list>

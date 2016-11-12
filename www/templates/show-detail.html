@@ -4,46 +4,32 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="{{show.name}}">
+<ion-view view-title="{{show.title}}" class="dashboard">
   <ion-nav-bar>
   <ion-nav-back-button class="button-gold">
     <i class="ion-arrow-left-c"></i> Back
   </ion-nav-back-button>
   </ion-nav-bar>
   <ion-content class="padding">
-      <div class="item item-body">
+      <div class="item">
         <img class="showimage" ng-src="{{show.image}}">
-        <p>
+          <p>
           {{show.description}}
         </p>
       </div>
       <div class="list">
 
-  		<a class="item item-icon-left" href="#">
+  		<a class="item item-icon-left">
    		 <i class="ion-android-time"></i>
    		 {{show.date}}
   		</a>
 
- 		<a class="item item-icon-left item-icon-right" href="#">
+ 		<a class="item item-icon-left item-icon-right">
   		 <i class="ion-social-euro"></i>
    		 {{show.price}}
  		</a>
- 	
-  <label class="item item-input item-select">
-  <div class="input-label">
-  Nombre de place
-  </div>
-  <select ng-init ="mySelect='1'" ng-model="mySelect">
-    <option value="1">1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-    <option>6</option>
-</select>
-  </label>
 
-      <button class="button button-block button-positive">
+      <button class="button button-block button-positive" ng-disabled=profiletoshow=='0'>
         Ajouter à ma liste
       </button>
     </div>

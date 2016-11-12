@@ -1,31 +1,45 @@
 /* Empty. Add your own CSS if you like */
 img.logo { width: 100%; }
+img.showimage { width: 100%; }
 .dashboard {
 	background-image: url("back_bubbles.jpg");
 	background-size: cover;
 }
 .dashboard h1 { 
 	color: #100246;
-	font-size : 35px;
-	font-family: "Hobo std";
+	font-size : 30px;
+	font-family: "Futura";
 	text-align: center; } 
 .dashboard h2 {
 	color : #100246;
 	font-size : 20px;
-	font-family: "Hobo std";
+	font-family: "Futura";
 	text-align : center;}
+.dashboard h3 {
+	color : #100246;
+	font-size : 20px;
+	font-family: "Futura";
+	text-align : left;}
+
 .dashboard p {
 	color : #000000;
 	font-size : 15px;
-	font-weight : bold;
-	font-family: "kalinga" ;
+	font-weight : normal;
+	font-style : italic;
+	font-family: "Futura" ;
+	text-align : justify; }
+.dashboard input {
+	color : #000000;
+	font-size : 15px;
+	font-style : italic;
+	
 	text-align : justify; }
 
 /*l'encadré "les coups de coeur Go Concert dans l'onglet Home */
 .item.item-body {
 	border-color : #32aabe;
 	background-color: #32aabe;
-	opacity : 0.8;
+	opacity : 0.9;
 }
 
 /* les boutons "Rechercher" etc...*/
@@ -36,19 +50,19 @@ img.logo { width: 100%; }
 /* L'intérieur des champs à remplir dans l'onglet Connexion --> "Email" et "XXXX"*/
 .item.item-input.item-stacked-label input {
 	background-color: #32aabe;
-	opacity : 0.8;
+	opacity : 0.9;
 }
 /*Onglet Recherche "activer la localisation"*/
 .item.item-toggle {
 	border-color : #32aabe;
 	background-color: #32aabe; 
-	opacity : 0.8;
+	opacity : 0.9;
 }
 /* bannière "que recherchez-vous", "search", "preferences", et "login" et mot de passe" */
 .item.item-input {
 	border-color : #32aabe;
 	background-color: #32aabe;
-	opacity : 0.8;
+	opacity : 0.9;
 }
 .item.item-input {
 	text-decoration-color: black;
@@ -58,8 +72,8 @@ img.logo { width: 100%; }
 	background-color: #32aabe
 }
 .toggle.toggle-assertive input:checked + .track {
-  border-color: #dc4ca6;
-  background-color: #dc4ca6; }
+  border-color: #715acc;
+  background-color: #715acc; }
 
  .icon.ion-search.placeholder-icon {
  	color : white;
@@ -74,14 +88,26 @@ img.logo { width: 100%; }
  /*onglet Recherche "préférences"*/
  .input-label {
  	color : #000000;
-	font-size : 18px;
+	font-size : 15px;
 	font-weight : bold;
-	font-family: "kalinga" ;
+	font-family: "Futura" ;
  }
  /*onglet Connexion "Mot de Passe"*/
 .passw-label {
 	color : #000000;
-	font-size : 18px;
+	font-size : 15px;
 	font-weight : bold;
-	font-family: "kalinga" ;
+	font-family: "Futura" ;
+}
+*::-webkit-input-placeholder {
+  color: black !important;
+  font-style: italic;
+}
+*:-moz-placeholder {
+  color: black !important;
+  font-style: italic;
+}
+*:-ms-input-placeholder { /* IE10+ */
+  color: black !important;
+  font-style: italic;
 }
