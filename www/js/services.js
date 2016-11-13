@@ -76,8 +76,13 @@ angular.module('starter.services', [])
     })
      },
 
-    book: function(user_id, nb_people) {
-      return $http.post("http://goco.herokuapp.com/concerts/" + user_id + "/reservation.json", {booking: {user_id: user_id, nb_people: nb_people}}).then(function(response){
+    book: function(showId,user_id, nb_people) {
+      console.log(showId);
+      console.log(user_id);
+      console.log(nb_people);
+      var total_price = 1;
+      var concert_id=1;
+      return $http.post("http://goco.herokuapp.com/concerts/" + showId + "/reservation",{"reservation": {"user_id": user_id,"concert_id": concert_id, "nb_people": nb_people,"total_price": total_price}}).then(function(response){
         booking = response.data;
         return booking;
       });

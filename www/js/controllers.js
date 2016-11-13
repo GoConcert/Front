@@ -82,21 +82,12 @@ else
   $scope.profiletoshow='1';
   $scope.user = JSON.parse(localStorage.getItem('userprof'));
   }
-  if ($scope.testuserprof==null|| $scope.testuserprof=='0'||$scope.testuserprof=='undefined')
-  {
-  $scope.user = {"status":""};
-  localStorage.setItem('userprof',JSON.stringify($scope.user));
-  }
-else
-  {
-  }
 $scope.connexion = function(username, passwd) {
 
     $scope.user_name=username;
     $scope.password =passwd;
     Shows.connexion($scope.user_name, $scope.password).then(function(apiUsers) {
     $scope.user = apiUsers;
-          });
     localStorage.setItem('userprof',JSON.stringify($scope.user));
         if ($scope.user_name=="" || typeof $scope.user_name=='undefined')
          { 
@@ -110,7 +101,7 @@ $scope.connexion = function(username, passwd) {
          localStorage.setItem('profileto',0);
          $scope.profiletoshow = localStorage.getItem('profileto');
          }
-      else if ($scope.user.status==""|| $scope.user.status=="Error 404 : not found")
+      else if ($scope.user.id==undefined)
        { 
          alert("Login ou Mot de passe incorrect");
          localStorage.setItem('profileto',0);
@@ -121,11 +112,15 @@ $scope.connexion = function(username, passwd) {
         localStorage.setItem('profileto',1);
         $scope.profiletoshow = localStorage.getItem('profileto');
    }
+   $window.location.reload();
+    });
   }
+
 $scope.deconnexion = function() {
       localStorage.setItem('profileto',0);
       localStorage.removeItem('userprof');
       $scope.profiletoshow=0;
+$window.location.reload();
     }
   })       
 .controller('ShowsCtrl', function($scope, Shows,$state,$stateParams) {
@@ -154,10 +149,9 @@ $scope.profiletoshow = localStorage.getItem('profileto');
 $scope.book = function() {
   $scope.nb_people=1;
   $scope.user = JSON.parse(localStorage.getItem('userprof'));
-    return Shows.book($scope.user.id, $scope.nb_people)
+    return Shows.book($stateParams.showId,$scope.user.id, $scope.nb_people)
     .then(function(booking) {
       console.log("Booking", booking);
-      alert("Votre ajout a bien été pris en compte avec le numéro" + booking.id);
       $scope.closeModal();
     })
   };
