@@ -1,5 +1,19 @@
 angular.module('starter.controllers', [])
 .controller('RechercheCtrl', function($scope, $stateParams,$ionicModal,$state, Shows){
+  $scope.localisationpardefaut="";
+  $scope.musicstylepardefaut="";
+  $scope.testprofiletoshow=localStorage.getItem('profileto');
+  if ($scope.testprofiletoshow==null|| $scope.testprofiletoshow=='0')
+  {
+  $scope.localisationpardefaut="Paris";
+  $scope.musicstylepardefaut="Tous";
+  }
+  else
+  {
+  $scope.user = JSON.parse(localStorage.getItem('userprof'));
+  $scope.localisationpardefaut=$scope.user.location;
+  $scope.musicstylepardefaut=$scope.user.pref[0].name;
+  }
   $ionicModal.fromTemplateUrl('templates/modal-find.html', {
   scope: $scope,
   animation: 'slide-in-up'
@@ -20,15 +34,31 @@ angular.module('starter.controllers', [])
     $scope.modal.hide();
   };
     })
-.controller('SelectionCtrl', function($scope,Shows,$state,$stateParams) {
+.controller('SelectionCtrl', function($scope,Shows,$state,$stateParams,$location,$window) {
 var userp = localStorage.getItem('userprof');
+if (userp=='undefined')
+{
+ $scope.profiletoshow='0';  
+}
+else
+{
 var userprofile = JSON.parse(userp);
 $scope.userprofi = userprofile;
+}
+if ($scope.userprofi!==null && userp!='undefined')
+  {
 Shows.listing(userprofile.id).then(function(apiShows) {
 $scope.shows = apiShows; 
  });
-})
-.controller('ConnexionCtrl', function($scope,Shows,$state,$stateParams) { 
+  $scope.profiletoshow='1';
+  }
+else
+  {
+ $scope.profiletoshow='0';  
+}
+$scope.goNext = function (hash) { 
+$location.path(hash);
+ };
 $scope.testprofiletoshow = localStorage.getItem('profileto');
 if ($scope.testprofiletoshow==null|| $scope.testprofiletoshow=='0')
   {
@@ -37,33 +67,67 @@ if ($scope.testprofiletoshow==null|| $scope.testprofiletoshow=='0')
 else
   {
   $scope.profiletoshow='1';
-  $scope.user = localStorage.getItem('userprof');
-  alert($scope.user);
   }
-$scope.connexion = function(user_name, password) {
-    $scope.user_name=user_name;
-    $scope.password =password;
-    Shows.connexion(user_name, password).then(function(apiUsers) {
+ })
+.controller('ConnexionCtrl', function($scope,Shows,$state,$stateParams,$window) { 
+$scope.testprofiletoshow = localStorage.getItem('profileto');
+$scope.testuserprof = localStorage.getItem('userprof');
+if ($scope.testprofiletoshow==null|| $scope.testprofiletoshow=='0'||$scope.testprofiletoshow=='undefined')
+  {
+  localStorage.setItem('profileto',0);
+  $scope.profiletoshow='0';
+  }
+else
+  {
+  $scope.profiletoshow='1';
+  $scope.user = JSON.parse(localStorage.getItem('userprof'));
+  }
+  if ($scope.testuserprof==null|| $scope.testuserprof=='0'||$scope.testuserprof=='undefined')
+  {
+  $scope.user = {"status":""};
+  localStorage.setItem('userprof',JSON.stringify($scope.user));
+  }
+else
+  {
+  }
+$scope.connexion = function(username, passwd) {
+
+    $scope.user_name=username;
+    $scope.password =passwd;
+    Shows.connexion($scope.user_name, $scope.password).then(function(apiUsers) {
     $scope.user = apiUsers;
-    localStorage.setItem('userprof',JSON.stringify(user));
-      if (typeof user.id==='undefined')
+          });
+    localStorage.setItem('userprof',JSON.stringify($scope.user));
+        if ($scope.user_name=="" || typeof $scope.user_name=='undefined')
+         { 
+         alert("Login vide");
+         localStorage.setItem('profileto',0);
+         $scope.profiletoshow = localStorage.getItem('profileto');
+         }
+       else if ($scope.password=="" || typeof $scope.password=='undefined')
+         { 
+         alert("Mot de passe vide");
+         localStorage.setItem('profileto',0);
+         $scope.profiletoshow = localStorage.getItem('profileto');
+         }
+      else if ($scope.user.status==""|| $scope.user.status=="Error 404 : not found")
        { 
-        alert(JSON.stringify(user));
+         alert("Login ou Mot de passe incorrect");
          localStorage.setItem('profileto',0);
          $scope.profiletoshow = localStorage.getItem('profileto');
          }
          else
-{ 
+        {    
         localStorage.setItem('profileto',1);
         $scope.profiletoshow = localStorage.getItem('profileto');
    }
-      });
-    }
+  }
 $scope.deconnexion = function() {
       localStorage.setItem('profileto',0);
+      localStorage.removeItem('userprof');
       $scope.profiletoshow=0;
     }
-        })
+  })       
 .controller('ShowsCtrl', function($scope, Shows,$state,$stateParams) {
     Shows.all().then(function(apiShows) {
     $scope.shows = apiShows; 
@@ -95,7 +159,6 @@ $scope.book = function(user_name, nb_people) {
       $scope.closeModal();
     })
   };
-
 });
 
 

@@ -13,7 +13,7 @@
     <p>  <br/> Ou indiquer un lieu </p>
     <label class="item item-input">
     <i class="icon ion-search placeholder-icon"></i>
-    <input type="text" placeholder="Search" ng-init="concert_location='Paris'" ng-model="concert_location">
+    <input type="text" placeholder="Search" ng-init="concert_location=localisationpardefaut" ng-model="concert_location">
     </label>
     </div>
     <p> <br/> Et / Ou indiquer vos préférences musicales </p>
@@ -23,7 +23,7 @@
     <div class="input-label">
     <p>Style musical</p>
     </div>
-    <select ng-init ="pref1='Tous'" ng-model="pref1">
+    <select ng-init ="pref1=musicstylepardefaut" ng-model="pref1">
     <option value='Tous'>Tous</option>
     <option>Electro</option>
     <option>Jazz</option>

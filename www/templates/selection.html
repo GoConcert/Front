@@ -1,5 +1,6 @@
 <ion-view view-title="Selection" class="dashboard">
   <ion-content class="padding">
+  <div ng-show=profiletoshow=='1'>
   <h1 class="title">Découvrez votre selection {{userprofi.user_name}}</h1>
        <div class="list">
       <label class="item item-input">
@@ -15,6 +16,13 @@
         <p>{{show.description}}</p>
       </ion-item>
     </ion-list>
+    </div>
+    </div>
+    <div ng-show=profiletoshow=='0'>
+    <h1 class="title">Connectez vous pour accéder à votre liste</h1>
+    <button class="button button-block button-positive" ng-click="goNext('/tab/connexion')">
+    Connexion 
+  </button>
     </div>
   </ion-content>
 </ion-view>
