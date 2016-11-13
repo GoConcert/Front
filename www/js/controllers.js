@@ -155,6 +155,63 @@ $scope.book = function() {
       $scope.closeModal();
     })
   };
-});
+})
+.controller('MapCtrl', function($scope, $ionicLoading, $state, Shows) {
+  $scope.shows = [];
+  Shows.all().then(function(apiShows) {
+    $scope.shows = apiShows;
+    $scope.addMarkers();
+  });
+
+  $scope.initializeMap = function() {
+    console.log("here");
+    var myLatlng = new google.maps.LatLng(48.8500, 2.35);
+    console.log(myLatlng);
+
+    var mapOptions = {
+        center: myLatlng,
+        zoom: 12,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    console.log("google", google);
+
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    navigator.geolocation.getCurrentPosition(function(pos) {
+        map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+        var myLocation = new google.maps.Marker({
+            position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+            map: map
+        });
+    $scope.lat=pos.coords.latitude;
+    $scope.long=pos.coords.longitude;
+    console.log($scope.lat);
+    Shows.geoloc($scope.lat,$scope.long).then(function(apiLoc){
+     $scope.locali=apiLoc;
+     $scope.ville=$scope.locali.results[0].address_components[2].long_name;
+     console.log($scope.ville);
+      }) 
+    });
+    $scope.map = map;
+    $scope.addMarkers();
+  }
+
+  $scope.addMarkers = function() {
+    if($scope.shows.length == 0) return;
+    $scope.shows.forEach(function(show) {
+      var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(show.lat, show.lng),
+          map: $scope.map,
+          label: show.name
+      });
+      google.maps.event.addListener(marker, 'click', function(){
+        $state.go('tab.show-detail', {showId: show.id});
+      });
+    });
+  }
+
+  ionic.Platform.ready($scope.initializeMap);
+  });
 
 

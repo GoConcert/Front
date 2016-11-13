@@ -76,6 +76,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+    .state('tab.map', {
+      url: '/map',
+      views: {
+        'map': {
+          templateUrl: 'templates/map.html',
+          controller: 'MapCtrl'
+        }
+      }
+    })
       .state('tab.connexion', {
       url: '/connexion',
       views: {

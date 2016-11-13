@@ -98,7 +98,13 @@ en paramètre : user_id concert_id et like : On/Off
       return list;
           })
      },
+    geoloc: function(latitude,longitude) {
 
+      return $http.get("http://maps.googleapis.com/maps/api/geocode/json?latlng="+latitude+","+longitude+"&sensor=true").then(function(response) {
+      position = response.data;
+      return position;
+          })
+     },
   
    };
 })
