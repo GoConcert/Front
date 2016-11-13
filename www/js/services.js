@@ -76,8 +76,8 @@ angular.module('starter.services', [])
     })
      },
 
-    book: function(showId, user_name, nb_people) {
-      return $http.post("http://goco.herokuapp.com/concerts/" + showId + "/reservation.json", {booking: {user_name: user_name, nb_people: nb_people}}).then(function(response){
+    book: function(user_id, nb_people) {
+      return $http.post("http://goco.herokuapp.com/concerts/" + user_id + "/reservation.json", {booking: {user_id: user_id, nb_people: nb_people}}).then(function(response){
         booking = response.data;
         return booking;
       });

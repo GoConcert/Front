@@ -151,11 +151,13 @@ $scope.closeModal = function() {
   };
 $scope.profiletoshow = 0;
 $scope.profiletoshow = localStorage.getItem('profileto');
-$scope.book = function(user_name, nb_people) {
-    return Shows.book($stateParams.showId, user_name, nb_people)
+$scope.book = function() {
+  $scope.nb_people=1;
+  $scope.user = JSON.parse(localStorage.getItem('userprof'));
+    return Shows.book($scope.user.id, $scope.nb_people)
     .then(function(booking) {
       console.log("Booking", booking);
-      alert("Votre réservation a bien été prise en compte avec le numéro " + booking.id);
+      alert("Votre ajout a bien été pris en compte avec le numéro" + booking.id);
       $scope.closeModal();
     })
   };
