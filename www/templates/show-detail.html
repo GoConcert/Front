@@ -1,37 +1,32 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
 <ion-view view-title="{{show.title}}" class="dashboard">
+
   <ion-nav-bar>
   <ion-nav-back-button class="button-gold">
-    <i class="ion-arrow-left-c"></i> Back
+  <i class="ion-arrow-left-c"></i> Back
   </ion-nav-back-button>
   </ion-nav-bar>
+
   <ion-content class="padding">
       <div class="item">
         <img class="showimage" ng-src="{{show.image}}">
-          <p>
-          {{show.description}}
+        <p>
+        {{show.description}}
         </p>
       </div>
       <div class="list">
-
-  		<a class="item item-icon-left">
-   		 <i class="ion-android-time"></i>
-   		 {{show.date}}
-  		</a>
-
- 		<a class="item item-icon-left item-icon-right">
-  		 <i class="ion-social-euro"></i>
+        <a class="item item-icon-left">
+   		   <i class="ion-android-time"></i>
+   		   {{show.date}}
+  		  </a>
+        <a class="item item-icon-left item-icon-right">
+  		  <i class="ion-social-euro"></i>
    		 {{show.price}}
- 		</a>
-
-      <button class="button button-block button-positive" ng-disabled=profiletoshow=='0' ng-click="book()">
+ 		   </a>
+        <button class="button button-block button-positive" ng-disabled=profiletoshow=='0' ng-click="book()">
         Ajouter à ma liste
-      </button>
-    </div>
+        </button>
+      </div>
+
   </ion-content>
+  
 </ion-view>

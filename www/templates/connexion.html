@@ -1,32 +1,42 @@
 <ion-view view-title="Connexion" class="dashboard">
+
+<ion-nav-bar>
+<ion-nav-back-button class="button-gold">
+<i class="ion-arrow-left-c"></i> Back
+</ion-nav-back-button>
+</ion-nav-bar>
+
 <ion-content class="padding">
-<div class="list" ng-show=profiletoshow=='0'>
-  <label class="item item-input item-stacked-label">
+
+  <div class="list" ng-show=profiletoshow=='0'>
+    <label class="item item-input item-stacked-label">
     <span class="input-label">Email</span>
     <input type="text" placeholder="Login" ng-model="username">
-  </label>
+    </label>
   </div>
   <div class="list" ng-show=profiletoshow=='0'>
     <label class="item item-input item-stacked-label">
     <span class="passw-label">Mot de passe</span>
     <input type="password" placeholder="XXXXX" ng-model="passwd">
-  </label>
-</div>
-<button class="button button-block button-positive" ng-click="connexion(username, passwd)" ng-show=profiletoshow=='0'>
+    </label>
+  </div>
+  <button class="button button-block button-positive" ng-click="connexion(username, passwd)" ng-show=profiletoshow=='0'>
   Connexion 
-</button>
-    <div class="list" ng-show=profiletoshow=='1'>
+  </button>
+  <div class="list" ng-show=profiletoshow=='1'>
     <h1 class="title">Votre compte</h1>
     <label class="item item-input">
-      <p> Bienvenue : {{user.user_name}}</p>
-      </label>
-      </div>
-      <div class="list" ng-show=profiletoshow=='1'>
-       <label class="item item-input">
-      <p> Localisation par défaut : {{user.location}}</p>
-     </label>
-      </div>
-      <button class="button button-block button-positive" ng-click="deconnexion()" ng-show=profiletoshow=='1'> Deconnexion
-    </div>
-  </ion-content>
+    <p> Bienvenue : {{user.user_name}}</p>
+    </label>
+  </div>
+  <div class="list" ng-show=profiletoshow=='1'>
+    <label class="item item-input">
+    <p> Localisation par défaut : {{user.location}}</p>
+    </label>
+  </div>
+    <button class="button button-block button-positive" ng-click="deconnexion()" ng-show=profiletoshow=='1'> Deconnexion
+  </div>
+  
+</ion-content>
+
 </ion-view>

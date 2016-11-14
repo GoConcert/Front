@@ -76,15 +76,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('tab.map', {
-      url: '/map',
-      views: {
-        'map': {
-          templateUrl: 'templates/map.html',
-          controller: 'MapCtrl'
-        }
-      }
-    })
       .state('tab.connexion', {
       url: '/connexion',
       views: {
@@ -98,8 +89,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     $urlRouterProvider.otherwise('/tab/shows');
   // Permet de centrer les view-title
     $ionicConfigProvider.navBar.alignTitle('center');
-    $ionicConfigProvider.tabs.position('bottom'); // other values: top
+  // Permet de mettre les tabs en bas
+    $ionicConfigProvider.tabs.position('bottom');
    
 
- });
+  });
 

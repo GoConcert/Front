@@ -1,43 +1,62 @@
 <ion-view view-title="Recherche" class="dashboard">
-  <ion-content class="padding">
-    <h1> Rechercher un concert</h1>
-    <li class="item item-toggle">
-     <p>Activer la localisation</p>
-     <label class="toggle toggle-assertive">
-       <input type="checkbox">
-       <div class="track">
-        <div class="handle"></div>
-       </div>
-     </label>
-  </li>
-    <p>  <br/> Ou indiquer un lieu </p>
-    <label class="item item-input">
-    <i class="icon ion-search placeholder-icon"></i>
-    <input type="text" placeholder="Search" ng-init="concert_location=localisationpardefaut" ng-model="concert_location">
-    </label>
-    </div>
-    <p> <br/> Et / Ou indiquer vos préférences musicales </p>
-    <div class="list">
 
-    <label class="item item-input item-select">
-    <div class="input-label">
-    <p>Style musical</p>
+<ion-nav-bar>
+<ion-nav-back-button class="button-gold">
+<i class="ion-arrow-left-c"></i> Back
+</ion-nav-back-button>
+</ion-nav-bar>
+
+  <ion-content class="padding">
+
+    <div>
+      <h1> Rechercher un concert</h1>
+      <li class="item item-toggle">
+      <p>Activer la localisation</p>
+      <label class="toggle toggle-assertive">
+      <input type="checkbox" ng-model="togglegeoloc" ng-click="activegeoloc(togglegeoloc)">
+        <div class="track">
+          <div class="handle"></div>
+        </div>
+      </label>
+      </li>
+      <ion-view ng-hide ="1" view-title="Carte" class="map-container">
+      <ion-content>
+      <div id="map" data-tap-disabled="true"></div>
+      </ion-content>
+      </ion-view>
     </div>
-    <select ng-init ="pref1=musicstylepardefaut" ng-model="pref1">
-    <option value='Tous'>Tous</option>
-    <option>Electro</option>
-    <option>Jazz</option>
-    <option>Pop</option>
-    <option>Punk</option>
-    <option>Rap</option>
-    <option>Reggae</option>
-    <option>Rock</option>
-    <option>Soul</option>
-    </select>
-    </label>
-</div>
-<button class="button button-block button-positive" ng-click="openModal(concert_location, pref1)">
-  Rechercher
-</button>
+    <div>
+      <p>  <br/> Ou indiquer un lieu </p>
+      <label class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="Search" ng-init="concert_location=localisationpardefaut" ng-model="concert_location">
+      </label>
+    </div>
+    <div>
+      <p> <br/> Et / Ou indiquer vos préférences musicales </p>
+      <div class="list">
+        <label class="item item-input item-select">
+          <div class="input-label">
+            <p>Style musical</p>
+          </div>
+        <select ng-init ="pref1=musicstylepardefaut" ng-model="pref1">
+        <option value='Tous'>Tous</option>
+        <option>Electro</option>
+        <option>Jazz</option>
+        <option>Pop</option>
+        <option>Punk</option>
+        <option>Rap</option>
+        <option>Reggae</option>
+        <option>Rock</option>
+        <option>Soul</option>
+        </select>
+        </label>
+      </div>
+    </div>
+    <button class="button button-block button-positive" ng-click="openModal(concert_location, pref1)">
+    Rechercher
+    </button>
+
   </ion-content>
+
 </ion-view>

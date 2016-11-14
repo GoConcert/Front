@@ -1,14 +1,18 @@
 <ion-view view-title="Accueil" class="dashboard">
-<ion-nav-bar>
+
+  <ion-nav-bar>
   <ion-nav-back-button class="button-gold">
-    <i class="ion-arrow-left-c"></i> Back
+  <i class="ion-arrow-left-c"></i> Back
   </ion-nav-back-button>
   </ion-nav-bar>
+
   <ion-content class="padding">
-    <img src="img/logo.png" class="logo" />
-    <p class="nobold">
-     Go Concert vous recommande des concerts en fonction de vos goûts musicaux !
-    </p>
+    <div>  
+      <img src="img/logo.png" class="logo" />
+      <p class="nobold">
+      Go Concert vous recommande des concerts en fonction de vos goûts musicaux !
+      </p>
+    </div>
     <div class="list">
       <label class="item item-input">
       <i class="icon ion-search placeholder-icon"></i>
@@ -16,16 +20,16 @@
       </label>
     </div>
     <div class="item item-body">
-     <h2>
-    Prochainement
-    </h2>
-    <ion-list>
+      <h2> Prochainement </h2>
+      <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="show in shows | filter:search | orderBy:'date' track by $index" type="item-text-wrap" href="#/tab/shows/{{show.id}}">
-        <img ng-src="{{show.image}}">
-        <h3>{{show.title}}</h3>
-        <p>{{show.description}}</p>
+      <img ng-src="{{show.image}}">
+      <h3>{{show.title}}</h3>
+      <p>{{show.description}}</p>
       </ion-item>
-    </ion-list>
+      </ion-list>
     </div>
+
   </ion-content>
+  
 </ion-view>
