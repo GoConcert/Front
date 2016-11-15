@@ -72,7 +72,6 @@ angular.module('starter.controllers', [])
           Shows.geoloc($scope.lat,$scope.long).then(function(apiLoc){
           $scope.locali=apiLoc;
           $scope.ville=$scope.locali.results[0].address_components[2].long_name;
-          console.log($scope.ville);
           localStorage.setItem('geolocalisation',$scope.ville);
           $window.location.reload();
           }) 
@@ -176,7 +175,7 @@ angular.module('starter.controllers', [])
           localStorage.setItem('profileto',1);
           $scope.profiletoshow = localStorage.getItem('profileto');
           }
-    $window.location.reload();
+      $window.location.reload();
     });
   }
   /* definition de la fonction deconnexion avec clean du localStorageUser  */
@@ -210,8 +209,7 @@ angular.module('starter.controllers', [])
     $scope.user = JSON.parse(localStorage.getItem('userprof'));
     return Shows.book($stateParams.showId,$scope.user.id, $scope.nb_people)
     .then(function(booking) {
-      console.log(booking);
-      $scope.closeModal();
+      $window.location.reload();
     })
   };
 
